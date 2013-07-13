@@ -41,6 +41,11 @@ public class Person {
 		return bModifiedAmount;
 	}
 	
+	public String getDollarAmount()
+	{
+		return String.format("$%.2f", amount);
+	}
+	
 	public boolean isEquals(Person other)
 	{
 		return (other.name == this.name);
