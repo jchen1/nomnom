@@ -10,17 +10,31 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.internal.app.ActionBarImpl;
 import com.actionbarsherlock.internal.app.ActionBarWrapper;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 //import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends SherlockFragmentActivity {
 public static Context appContext;
+
+public AddTransFragment addTransFragment;
+public BalanceFragment balanceFragment;
+public HistoryFragment historyFragment;
  
     /** Called when the activity is first created. */
     @Override
@@ -42,8 +56,9 @@ public static Context appContext;
         
  
      //create the two fragments we want to use for display content
-        BalanceFragment balanceFragment = new BalanceFragment();
-        HistoryFragment historyFragment = new HistoryFragment();
+        balanceFragment = new BalanceFragment();
+        historyFragment = new HistoryFragment();
+        addTransFragment = new AddTransFragment();
  
     //set the Tab listener. Now we can listen for clicks.
         BalanceTab.setTabListener(new MyTabsListener(balanceFragment));
@@ -85,5 +100,37 @@ public static Context appContext;
         return true;
     }
     
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.new_transaction:
+                newTransaction();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    
+    public void newTransaction()
+    {
+    	AddTransFragment newFragment = AddTransFragment.newInstance(
+                this);
+        newFragment.show(getFragmentManager(), "dialog");
+    }
+    
+    void showDialog() {
+        
+    }
+
+    public void doPositiveClick() {
+        // Do stuff here.
+        Log.i("FragmentAlertDialog", "Positive click!");
+    }
+
+    public void doNegativeClick() {
+        // Do stuff here.
+        Log.i("FragmentAlertDialog", "Negative click!");
+    }
 
 }

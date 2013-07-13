@@ -31,7 +31,7 @@ class MyTabsListener implements ActionBar.TabListener {
 	public void onTabUnselected(Tab tab,
 			FragmentTransaction ft) {
 		// TODO Auto-generated method stub
-		ft.remove(fragment);
+		ft.hide(fragment);
 	}
 
 	@Override
