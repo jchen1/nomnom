@@ -10,6 +10,7 @@ import java.util.Random;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -19,11 +20,10 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class BalanceFragment extends android.app.ListFragment {
+public class BalanceFragment extends ListFragment {
 
 	String[] columnTags = new String[] {"Name", "Balance", "Description"};
 	int[] columnIds = new int[] {R.id.col1, R.id.col2, R.id.descText};
-	ArrayList<HashMap<String, String>> listData = new ArrayList<HashMap<String, String>>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, 
         Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class BalanceFragment extends android.app.ListFragment {
     	//TextView t = (TextView) v.findViewById(R.id.frag_balance);
     	//t.setText("aoeirgjaeoijaoeihjoaieth");
     	ArrayList<BalanceHolder> testList = new ArrayList<BalanceHolder>();
+    	ArrayList<HashMap<String, String>> listData = new ArrayList<HashMap<String, String>>();
     	HashMap<String, String> map = new HashMap<String, String>();
     	Calendar c = Calendar.getInstance();
     	c.setTimeInMillis(c.getTimeInMillis() - 4000);

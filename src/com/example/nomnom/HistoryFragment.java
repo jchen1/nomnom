@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-public class HistoryFragment extends android.app.ListFragment {
+public class HistoryFragment extends ListFragment {
 
 	String[] columnTags = new String[] {"Name", "Date", "Amount"};
 	int[] columnIds = new int[] {R.id.col1, R.id.col2, R.id.col3};
