@@ -40,72 +40,59 @@ public class BalanceFragment extends ListFragment {
         // Inflate the layout for this fragment
     	//TextView t = (TextView) v.findViewById(R.id.frag_balance);
     	//t.setText("aoeirgjaeoijaoeihjoaieth");
-    	if (!constructed)
-    	{
-    		newList = new ArrayList<BalanceHolder>();
-	    	testList = new ArrayList<BalanceHolder>();
-	    	listData = new ArrayList<HashMap<String, String>>();
-	    	map = new HashMap<String, String>();
-	    	Calendar c = Calendar.getInstance();
-	    	c.setTimeInMillis(c.getTimeInMillis() - 4000);
-	    	testList.add(new BalanceHolder("Barack Obama", -100.0f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 100000);
-	    	testList.add(new BalanceHolder("George W. Bush", 150.0f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 150000);
-	    	testList.add(new BalanceHolder("Bill Clinton", 12.22f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 175000);
-	    	testList.add(new BalanceHolder("George H.W. Bush", -5155.54f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 1750000);
-	    	testList.add(new BalanceHolder("Ronald Reagan", 0.01f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 17500000);
-	    	testList.add(new BalanceHolder("Jimmy Carter", -58.3f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 175000000);
-	    	testList.add(new BalanceHolder("Gerald Ford", 145.4f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 175000000);
-	    	testList.add(new BalanceHolder("Richard Nixon", -1404f, (Calendar) c.clone()));
-	    	c.setTimeInMillis(c.getTimeInMillis() - 1750000000);
-	    	lv = (ListView) v.findViewById(android.R.id.list);
-	    	lv.setItemsCanFocus(true);
-	    	//lv.setAdapter(new ArrayAdapter<Person>(getActivity(), android.R.layout.simple_list_item_2, testList));
-	
-	    	
-	    	for (BalanceHolder p: testList)
-	    	{
-	    		map.clear();
-	    		map.put(columnTags[0], p.getName());
-	    		map.put(columnTags[1], p.getBalanceString());
-	    		map.put(columnTags[2], p.timeSinceLastUpdate());
-	    		listData.add((HashMap<String, String>) map.clone());
-	    		
-	    	}
-	    	arrayAdapter = new SimpleAdapter(getActivity(), listData, R.layout.row, columnTags, columnIds)
-	    	{
-	    		@Override
-	            public View getView(int position, View convertView,
-	                    ViewGroup parent) {
-	                View view = super.getView(position, convertView, parent);
-	
-	                TextView textView=(TextView) view.findViewById(R.id.col2);
-	
-	                /*YOUR CHOICE OF COLOR*/
-	                
-	                textView.setTextColor((textView.getText().charAt(0) == '-') ? Color.rgb(237, 32, 36) : Color.rgb(105, 189, 69));
-	                
-	                return view;
-	            }
-	    	};
-	    	lv.setAdapter(arrayAdapter);
-	    }
-    	for (BalanceHolder p: newList)
+    	if (testList == null)
+    		testList = new ArrayList<BalanceHolder>();
+    	listData = new ArrayList<HashMap<String, String>>();
+    	map = new HashMap<String, String>();
+    	Calendar c = Calendar.getInstance();
+    	c.setTimeInMillis(c.getTimeInMillis() - 4000);
+    	testList.add(new BalanceHolder("Barack Obama", -100.0f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 100000);
+    	testList.add(new BalanceHolder("George W. Bush", 150.0f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 150000);
+    	testList.add(new BalanceHolder("Bill Clinton", 12.22f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 175000);
+    	testList.add(new BalanceHolder("George H.W. Bush", -5155.54f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 1750000);
+    	testList.add(new BalanceHolder("Ronald Reagan", 0.01f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 17500000);
+    	testList.add(new BalanceHolder("Jimmy Carter", -58.3f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 175000000);
+    	testList.add(new BalanceHolder("Gerald Ford", 145.4f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 175000000);
+    	testList.add(new BalanceHolder("Richard Nixon", -1404f, (Calendar) c.clone()));
+    	c.setTimeInMillis(c.getTimeInMillis() - 1750000000);
+    	lv = (ListView) v.findViewById(android.R.id.list);
+    	lv.setItemsCanFocus(true);
+    	//lv.setAdapter(new ArrayAdapter<Person>(getActivity(), android.R.layout.simple_list_item_2, testList));
+
+    	
+    	for (BalanceHolder p: testList)
     	{
     		map.clear();
     		map.put(columnTags[0], p.getName());
     		map.put(columnTags[1], p.getBalanceString());
     		map.put(columnTags[2], p.timeSinceLastUpdate());
-    		listData.add((HashMap<String, String>) map.clone());	
+    		listData.add((HashMap<String, String>) map.clone());
+    		
     	}
-    	
-    	newList.clear();
+    	arrayAdapter = new SimpleAdapter(getActivity(), listData, R.layout.row, columnTags, columnIds)
+    	{
+    		@Override
+            public View getView(int position, View convertView,
+                    ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                TextView textView=(TextView) view.findViewById(R.id.col2);
+
+                /*YOUR CHOICE OF COLOR*/
+                
+                textView.setTextColor((textView.getText().charAt(0) == '-') ? Color.rgb(237, 32, 36) : Color.rgb(105, 189, 69));
+                
+                return view;
+            }
+    	};
+    	lv.setAdapter(arrayAdapter);
     	
     	arrayAdapter.notifyDataSetChanged();
     	
