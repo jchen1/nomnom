@@ -12,8 +12,8 @@ import android.widget.SimpleAdapter;
 
 public class BalanceFragment extends android.app.ListFragment {
 
-	String[] columnTags = new String[] {"Name", "Date", "Balance"};
-	int[] columnIds = new int[] {R.id.col1, R.id.col2, R.id.col3};
+	String[] columnTags = new String[] {"Name", "Balance"};
+	int[] columnIds = new int[] {R.id.col1, R.id.col2};
 	ArrayList<HashMap<String, String>> listData = new ArrayList<HashMap<String, String>>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, 
@@ -25,10 +25,6 @@ public class BalanceFragment extends android.app.ListFragment {
     	//t.setText("aoeirgjaeoijaoeihjoaieth");
     	ArrayList<Person> testList = new ArrayList<Person>();
     	HashMap<String, String> map = new HashMap<String, String>();
-    	map.put(columnTags[0],  "Name");
-    	map.put(columnTags[1],  "Last Transaction");
-    	map.put(columnTags[2],  "Balance");
-    	listData.add((HashMap<String, String>) map.clone());
     	testList.add(new Person("aefoawirgwr", 25));
     	testList.add(new Person("2", 10));
     	testList.add(new Person("fjj", 100149));
@@ -36,17 +32,15 @@ public class BalanceFragment extends android.app.ListFragment {
     	{
     		testList.add(new Person(i.toString(), i));
     	}
-    	ListView lv = (ListView) v.findViewById(R.id.frag_balance);
+    	ListView lv = (ListView) v.findViewById(android.R.id.list);
     	//lv.setAdapter(new ArrayAdapter<Person>(getActivity(), android.R.layout.simple_list_item_2, testList));
-    	
-    	
+
     	
     	for (Person p: testList)
     	{
     		map.clear();
     		map.put(columnTags[0], p.getName());
-    		map.put(columnTags[1], p.getDate().getMonth() + "/" + p.getDate().getDate());
-    		map.put(columnTags[2], ((Double)p.getAmount()).toString());
+    		map.put(columnTags[1], p.getDollarAmount());
     		listData.add((HashMap<String, String>) map.clone());
     		
     	}
