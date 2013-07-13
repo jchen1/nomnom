@@ -19,7 +19,7 @@ class MyTabsListener implements TabListener {
 	@Override
 	public void onTabReselected(Tab tab, android.app.FragmentTransaction ft) {
 		// TODO Auto-generated method stub
-		Toast.makeText(MainActivity.appContext, "Reselected!", Toast.LENGTH_LONG).show();
+		//Toast.makeText(MainActivity.appContext, "Reselected!", Toast.LENGTH_LONG).show();
 	}
 	
 	@Override
