@@ -8,53 +8,7 @@ public class Transaction {
 	private Date date;
 	private ArrayList<Person> people;
 	private double totalAmount; //totalAmount = sum(amounts)
-	
-	
-	private class Person {
-		private String name;
-		private double amount;
-		private boolean bModifiedAmount;
-		
-		public Person(String name, double amount)
-		{
-			this.name = name;
-			this.amount = amount;
-			this.bModifiedAmount = false;
-		}
-		
-		public double getAmount()
-		{
-			return amount;
-		}
-		
-		public String getName()
-		{
-			return name;
-		}
-		
-		public void setAmount(double newAmount)
-		{
-			this.amount = newAmount;
-			bModifiedAmount = true;
-		}
-		
-		public void setAutoAmount(double newAmount)
-		{
-			this.amount = newAmount;
-			bModifiedAmount = false;
-		}
-		
-		public boolean hasModifiedAmount()
-		{
-			return bModifiedAmount;
-		}
-		
-		public boolean isEquals(Person other)
-		{
-			return (other.name == this.name);
-		}
-	}
-	
+
 	private String details;
 	
 	public Transaction()
