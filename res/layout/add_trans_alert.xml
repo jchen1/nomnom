@@ -3,15 +3,19 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <TextView
-        android:text="@string/app_name"
+        android:text="ADD TRANSACTION"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:scaleType="center"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:gravity="center_horizontal|center"
         android:background="#FFFFBB33"
-        android:contentDescription="@string/app_name" />
+        android:textStyle="bold"
+        android:contentDescription="ADD TRANSACTION" />
     <EditText
         android:id="@+id/username"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -21,7 +25,7 @@
         android:hint="Name" />
     <EditText
         android:id="@+id/password"
-        android:inputType="numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -30,4 +34,15 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"
         android:hint="Amount"/>
+    <EditText
+        android:id="@+id/details"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif"
+        android:hint="Details"/>
 </LinearLayout>

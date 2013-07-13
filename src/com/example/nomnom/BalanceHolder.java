@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 public class BalanceHolder {
-	private String name;
+	private String name, details = "";
 	private double balance;
 	private Calendar lastModified;
 	
@@ -23,6 +23,14 @@ public class BalanceHolder {
 		this.name = name;
 		this.balance = initialBalance;
 		this.lastModified = date;
+	}
+	
+	public BalanceHolder(String name, double initialBalance, Calendar date, String details)
+	{
+		this.name = name;
+		this.balance = initialBalance;
+		this.lastModified = date;
+		this.details = details;
 	}
 	
 	public BalanceHolder(String encoded)
@@ -103,9 +111,19 @@ public class BalanceHolder {
 		return name;
 	}
 	
+	public void setDetails(String details)
+	{
+		this.details = details;
+	}
+	
+	public String getDetails()
+	{
+		return details;
+	}
+	
 	public boolean isEquals(BalanceHolder other)
 	{
-		return (name == other.getName());
+		return (name.equals(other));
 	}
 	
 	public String toString()

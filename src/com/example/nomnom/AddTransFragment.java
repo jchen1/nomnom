@@ -32,8 +32,10 @@ public class AddTransFragment extends DialogFragment {
         
         final EditText name;
 		final EditText amount;
+		final EditText details;
         name = (EditText)inflator.findViewById(R.id.username);
         amount = (EditText)inflator.findViewById(R.id.password);
+        details = (EditText)inflator.findViewById(R.id.details);
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
@@ -45,7 +47,9 @@ public class AddTransFragment extends DialogFragment {
                 	   //EditText name = (EditText)dialog.findViewById(R.id.username);
                 	   String n = name.getText().toString();
                 	   double a = new Scanner(amount.getText().toString()).nextDouble();
-                	   ma.balanceFragment.updateList(new BalanceHolder(n, a));
+                	   BalanceHolder bh = new BalanceHolder(n, a);
+                	   bh.setDetails(details.getText().toString());
+                	   ma.balanceFragment.updateList(bh);
                    }
                })
                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
